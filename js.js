@@ -11,7 +11,7 @@ canvas.onclick = function(event){
 	console.log(y);
 	x = Math.floor(x/10); //300 /10 = 30
 	y = Math.floor(y/10); //300 /10 = 
-	mas[y][x]=1;
+	mas[y][x] = (mas[y][x] == 0 ? 1 : 0);
 	console.log(mas);
 	drawField();
 }
@@ -42,6 +42,7 @@ function drawField(){
 function startLife(){
 	//моделирование жизни
 	var mas2 = [];
+    var f = 0;
 	for (var i=0; i<30; i++){
 		mas2[i]=[];
 		for (var j=0; j<30; j++){
@@ -54,15 +55,24 @@ function startLife(){
 			if (mas[fpp(i)+1][fpp(j)+1]==1) neighbors++;
 			if (mas[fpp(i)+1][fpm(j)-1]==1) neighbors++;
 			if (mas[fpm(i)-1][fpm(j)-1]==1) neighbors++;
-			//(neighbors==2 || neighbors==3) ? mas2[i][j]=1 : mas2[i][j]==0;
-                        (mas[i][j] == 0 && neighbors==3) || ((mas[i][j] == 1) && (neighbors==2 || neighbors==3)) ? mas2[i][j]=1 : mas2[i][j]=0;
+            mas2[i][j] = (mas[i][j] == 0 && neighbors==3) || ((mas[i][j] == 1) && (neighbors==2 || neighbors==3)) ? 1 : 0;
+            if (mas[i][j] != mas2[i][j]) f = 1;
 		}
 	}
-	mas = mas2;
-	drawField();
-	count++;
-	document.getElementById('count').innerHTML = count;
-	timer = setTimeout(startLife, 300);
+	if (f == 1)
+        {
+            mas = mas2;
+            drawField();
+            count++;
+            document.getElementById('count').innerHTML = count;
+            timer = setTimeout(startLife, 300);
+        }
+}
+
+function stop()
+{
+    goLife();
+    drawField();
 }
 
 function fpm(i){
