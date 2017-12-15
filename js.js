@@ -4,6 +4,8 @@ var mas=[];
 var count=0;
 var timer;
 
+var configsJSON = "config/configs.json";
+
 canvas.onclick = function(event){
 	var x = event.offsetX;
 	var y = event.offsetY;
