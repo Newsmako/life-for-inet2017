@@ -20,22 +20,20 @@ canvas.onclick = function(event){
     var configsJSON = "config/" + brush + ".json";
 
 
-
+var json = {"cells":[{"x":1,"y":0},{"x":2,"y":1},{"x":0,"y":2},{"x":1,"y":2},{"x":2,"y":2}]};
         $.getJSON(configsJSON, function(data){
-            alert('asdas');
-            //alert(data.list[1].name);
+            json = data
         });
-
-
-
-
 	var x = event.offsetX;
 	var y = event.offsetY;
 	console.log(x);
 	console.log(y);
-	x = Math.floor(x/10); //300 /10 = 30
-	y = Math.floor(y/10); //300 /10 = 
-	mas[y][x] = (mas[y][x] == 0 ? 1 : 0);
+	x = Math.floor(x/10);
+	y = Math.floor(y/10);
+    for (var i = 0; i < json.cells.length; i++){
+        mas[y + json.cells[i].y][x + json.cells[i].x] =
+        (mas[y + json.cells[i].y][x + json.cells[i].x] == 0 ? 1 : 0);
+    }
 	console.log(mas);
 	drawField();
 }
