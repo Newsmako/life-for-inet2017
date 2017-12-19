@@ -20,6 +20,15 @@ canvas.onclick = function(event){
     var configsJSON = "config/" + brush + ".json";
 
 
+
+        $.getJSON(configsJSON, function(data){
+            alert('asdas');
+            //alert(data.list[1].name);
+        });
+
+
+
+
 	var x = event.offsetX;
 	var y = event.offsetY;
 	console.log(x);
