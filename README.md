@@ -22,4 +22,4 @@ https://keepers-of-secrets.github.io/life-for-inet2017/
 - HTML
 - CSS
 - JS
-- <i>JSON/XML(???)</i>
+- JSON

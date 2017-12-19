@@ -17,24 +17,13 @@ canvas.onclick = function(event){
         brush = option.value;
         }
     }
-    
-    
-    
-   // var configsJSON = "config/" + brush + ".json";
 
-
-var json = {"cells":[{"x":1,"y":0},{"x":2,"y":1},{"x":0,"y":2},{"x":1,"y":2},{"x":2,"y":2}]};
-        $.getJSON(configsJSON, function(data){
-            json = data
-        });
-
+if(brush == 'hive')
+{var json = {"cells":[{"x":1,"y":0},{"x":2,"y":0},{"x":0,"y":1},{"x":3,"y":1},{"x":1,"y":2},{"x":2,"y":2}]};}
 if(brush == 'glider')
 {var json = {"cells":[{"x":1,"y":0},{"x":2,"y":1},{"x":0,"y":2},{"x":1,"y":2},{"x":2,"y":2}]};}
 if(brush == 'point')
 {var json = {"cells":[{"x":0,"y":0}]};}
-//        $.getJSON(configsJSON, function(data){
-//            json = jQuery.parseJSON(data)
-//        });
 
 	var x = event.offsetX;
 	var y = event.offsetY;
