@@ -4,9 +4,22 @@ var mas=[];
 var count=0;
 var timer;
 
-var configsJSON = "config/configs.json";
+
 
 canvas.onclick = function(event){
+    var form = document.forms[0];
+    var select = form.elements.config;
+    var brush;
+
+    for (var i = 0; i < select.options.length; i++) {
+    var option = select.options[i];
+    if(option.selected) {
+        brush = option.value;
+        }
+    }
+    var configsJSON = "config/" + brush + ".json";
+
+
 	var x = event.offsetX;
 	var y = event.offsetY;
 	console.log(x);

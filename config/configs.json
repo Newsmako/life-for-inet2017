@@ -1,7 +1,0 @@
-{
-    "configs":[
-        {"name": "point", "json": "config/point.json"},
-        {"name": "glider", "json": "config/glider.json"},
-        {"name": "hive", "json": "config/hive.json"},
-    ]
-}
